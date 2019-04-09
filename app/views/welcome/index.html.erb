@@ -1,2 +1,28 @@
 <h1>Welcome#index</h1>
 	<p>Find me in app/views/welcome/index.html.erb</p>
+  <div class="text-center">
+  	<h1>Get Your Blocitoff On</h1>
+  	<p>An Easy Way for You to Stay Organized</p>
+    <body>
+
+    <%=link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> or
+        <%=link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %> today!
+</div>
+
+
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Add items to your list</h2>
+      <span class="glyphicon glyphicon-list-alt"></span>
+    </div>
+    <div class="col-md-4">
+      <h2>Get it done in 7 days</h2>
+      <span class="glyphicon glyphicon-time"></span>
+    </div>
+    <div class="col-md-4">
+      <h2>Eliminate disorganization</h2>
+      <span class="glyphicon glyphicon-calendar"></span>
+    </div>
+  </div>
+
+  </body>
