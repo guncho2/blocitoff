@@ -4,7 +4,8 @@ Rails.application.routes.draw do
  resources :users, only: [:update, :show] do
    resources :items
  end
-
+      get    'sign_in'   => 'devise/sessions#new'
+      post   'sign_in'   => 'devise/sessions#create'
  authenticated :user do
    root to: "users#show", as: :authenticated_root, via: :get
  end
