@@ -1,19 +1,17 @@
 Rails.application.routes.draw do
 
   devise_for :users
- resources :users, only: [:update, :show] do
-   resources :items
- end
+
+  resources :users, only: [:update, :show] do
+    resources :items, only: [:create, :destroy]
+  end
 
  authenticated :user do
-   root to: "users#show", as: :authenticated_root, via: :get
+    root to: 'users#show', as: :authenticated_root_path
+end
 
- end
-
- unauthenticated do
-   root to: 'welcome#index'
-   get    'sign_in'   => 'devise/sessions#new'
-   post   'sign_in'   => 'devise/sessions#create'
- end
+unauthenticated :user do
+   root 'welcome#index', as: :unauthenticated_root_path
+end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
