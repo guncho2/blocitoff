@@ -1,44 +1,32 @@
 class SessionController < ApplicationController
 
-
   def new
-  @user = User.new
-end
-
-def index
-  @tuser = User.all
-end
-
-
-  def show
-    @user = User.find(params[:id])
+    @user = User.new
   end
 
-def create
+  def index
+    @user = User.all
+  end
 
+def show
+  @user = User.find(params[:id])
+  def create
 
+    @user = User.find_by(email: params:[:session][:email].downcase)
 
-  @user = User.find_by(email: params[:session][:email].downcase)
+    if user & user.authenticate(params[:session][:password])
+      create_sesssion(user)
+      flash[:notice] = "Welcome, #{user.name}!"
+      redirect_to root_path
+    else
+      flash.now[:alert] = 'invalid email/password combination'
+      render :new
+    end
+  end
+  def destroy
+    destroy_session(current_user)
+    flash[:notice] = "You have been  signed out"
 
-
-
-  if user && user.authenticate(params[:session][:password])
-    create_session(user)
-    flash[:notice] = "Welcome, #{user.name}!"
     redirect_to root_path
-  else
-    flash.now[:alert] = 'Invalid email/password combination'
-    render :new
   end
-end
-
-def destroy
-  ##3
-  destroy_session(current_user)
-  flash[:notice] = "You have been signed out, comeback soon!"
-  redirect_to root_path
-end
-
-
-
 end

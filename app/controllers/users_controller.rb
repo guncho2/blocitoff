@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
     def confirm
 
-        
+
 
         @user = User.new(user_params)
 
@@ -47,9 +47,12 @@ class UsersController < ApplicationController
    end
 
    def show
-     @user = current_user
-     @items = @user.items
-   end
+	    if params[:id]
+	    @user = User.find(params[:id])
+	    else
+	    @user = current_user
+	    end
+	  end
 
    private
 
