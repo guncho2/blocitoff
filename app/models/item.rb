@@ -1,3 +1,3 @@
-class Item < ActiveRecord::Base
-	  belongs_to :user
-	end
+class Item < ApplicationRecord
+  belongs_to :user
+end
