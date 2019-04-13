@@ -1,5 +1,6 @@
 <% if flash[:success] %>
   $('#item-<%= @item.id %>').remove();
 <% else %>
+
   alert('something went wrong')
 <% end %>
