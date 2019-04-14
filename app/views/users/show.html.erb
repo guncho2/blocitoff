@@ -10,7 +10,13 @@
 	    <h2 class="media-heading">Name: <%= @user.name if @user.name %></h2>
 	    <h2 class="media-heading">Email: <%= @user.email if @user.email %></h2>
        <h2 class="media-heading user-name"> <%= @user.name %>'s To-Do Lists: </h2>
+
+       
+	    <div class='js-items'>
+
        <%= render partial: 'items/item', collection: @items %>
+       </div>
+
      </div>
      <div class="container">
        <%= render 'items/form'%>

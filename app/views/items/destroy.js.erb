@@ -1,6 +1,15 @@
-<% if flash[:success] %>
-  $('#item-<%= @item.id %>').remove();
-<% else %>
+// # <% if flash[:success] %>
+// #
+// #   $('#item-<%= @item.id %>').remove();
+// # <% else %>
+// #
+// #   alert('something went wrong')
+// # <% end %>
 
-  alert('something went wrong')
-<% end %>
+<% if @item.destroyed? %>
+	  $('#item-' +<%= @item.id %>).fadeOut(700);
+	<% else %>
+	  $('#item-' +<%= @item.id %>).prepend("<div class='alert alert-danger'><%= flash[:error] %></div>");
+	<% end %>
+
+  
