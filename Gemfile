@@ -80,3 +80,4 @@ gem 'bcrypt', require: 'bcrypt'
 gem 'bootstrap-sass'
 gem 'faker'
 gem 'sendgrid-ruby'
+gem 'whenever', :require => false

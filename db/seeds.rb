@@ -26,17 +26,28 @@ require 'faker'
     	  name: 'Edy'
     	  )
 	# Create Items
-  50.times do
-  Item.create!(
-              user:         users.sample,
-              name:         Faker::Lorem.sentence,
-	              created_at:   Faker::Date.backward(7)
+  # 50.times do
+  # Item.create!(
+  #             user:         users.sample,
+  #             name:         Faker::Lorem.sentence,
+	#               created_at:   Faker::Date.backward(7)
+	#
+	#   )
 
-	  )
-	end
+	# end
+
+	30.times do
+    item = Item.create!(
+    user: users.sample,
+    name: Faker::Lorem.sentence,
+    created_at: 10.day.ago
+    )
+  end
+
+
+
 	items = Item.all
 
 	puts "Seed finished"
 	puts "#{User.count} users created"
 	puts "#{Item.count} items created"
-  
