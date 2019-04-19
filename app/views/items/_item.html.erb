@@ -1,7 +1,7 @@
 <div id="item-<%= item.id %>" class="media">
 	  <div class="item list-group-item">
       <div class = 'col-md-3'>
-	        <%= item.distance_of_time_in_words %> days left!
+	        <%= distance_of_time_in_words(Time.now, item.created_at + 7.days) %> days left!
 	      </div>
 	    <%= link_to "", [item.user, item], method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %>
 	    <h4 class= 'list-group-item-heading'><%= item.name %></h4>

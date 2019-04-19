@@ -4,7 +4,7 @@ class Item < ApplicationRecord
 
 	  default_scope { order('updated_at DESC') }
 
-    def distance_of_time_in_words
+    def days_left
      7 - (DateTime.now.to_date - created_at.to_date).to_i
    end
 
